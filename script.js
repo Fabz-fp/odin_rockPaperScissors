@@ -1,3 +1,8 @@
+let buttonRock = document.getElementById("rock")
+let buttonPaper = document.getElementById("paper")
+let buttonScissor = document.getElementById("scissor")
+const results = document.getElementById("results")
+
 // Computer choice
 function getComputerChoice() {
     const num = Math.floor(Math.random() * 3) + 1;
@@ -58,13 +63,10 @@ function playRound(playerChoice, computerChoice) {
     console.log(`Computer score: ${computerScore}`);
 }
 
-// Play game: 5 rounds
-for(let i = 1; i <= 5; i++) {
-    console.log(`--- Round ${i} ---`);
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-}
+// Events
+buttonRock.addEventListener('click', () => playRound("rock", getComputerChoice()));
+buttonPaper.addEventListener('click', () => playRound("paper", getComputerChoice()));
+buttonScissor.addEventListener('click', () => playRound("scissor", getComputerChoice()));
 
 console.log("=== Final Scores ===");
 console.log(`You: ${humanScore}, Computer ${computerScore}`);
